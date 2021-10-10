@@ -77,6 +77,18 @@ namespace CalendarioAPI.Data
         public void Elimina(string titolo)
         {
             throw new NotImplementedException();
+
+            /*
+             *  Passaggio inutile, in fase di stampa non viene mostrato
+            foreach(var e in _eventi)
+            {
+                if (e.Titolo.ToLower().Contains(titolo.ToLower()))
+                {
+                    _eventi.Remove(e);
+                    break;
+                }
+            }
+            */
         }
 
         public void Modifica(string titolo, Evento t)

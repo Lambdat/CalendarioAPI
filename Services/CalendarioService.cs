@@ -3,7 +3,6 @@ using CalendarioAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CalendarioAPI.Services
 {
@@ -45,7 +44,11 @@ namespace CalendarioAPI.Services
 
         public void Elimina(string titolo)
         {
-            throw new NotImplementedException();
+            int indice = _dati.Elenco().IndexOf(Cerca(titolo.ToLower()));
+            Console.WriteLine("Indice Elemento da Eliminare: " + indice);
+
+            if(indice>=0)
+                _dati.Elenco().RemoveAt(indice);
         }
 
         public void Modifica(string titolo, Evento t)

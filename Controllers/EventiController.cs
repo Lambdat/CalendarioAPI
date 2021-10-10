@@ -1,6 +1,7 @@
 ﻿using CalendarioAPI.Models;
 using CalendarioAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 
 namespace CalendarioAPI.Controllers
@@ -11,6 +12,9 @@ namespace CalendarioAPI.Controllers
     {
         //Creaiamo campo di tipo Interfaccia privato a sola lettura
         private readonly ICalendarioService<Evento> _iCalendarioService;
+
+
+        //private readonly ILogger<EventiController> _logger;
 
         //Metodo Costruttore per inizializzare il campo di tipo interfaccia
         public EventiController(ICalendarioService<Evento> _iCalendarioService)
@@ -41,7 +45,15 @@ namespace CalendarioAPI.Controllers
             return Ok();
         }
 
+        //Metodi DELETE del protocollo HTTP
 
+        [HttpDelete]  
+        public IActionResult Elimina([FromQuery]string titolo) //fromquery => .../eventi?titolo=natale
+        {
+            _iCalendarioService.Elimina(titolo.ToLower());
 
+            return Ok();
+        }
+        
     }
 }
