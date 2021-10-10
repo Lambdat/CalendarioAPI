@@ -12,7 +12,7 @@ namespace CalendarioAPI.Data
     // Estendiamo ed implementiamo l'interfaccia, sovrascrivendo il generic <T> con Evento
     public class Scaffolding : ICalendarioService<Evento>
     {
-        //Lista di Eventi in Scaffolding
+        //Lista di Eventi contenuti in Scaffolding
         private List<Evento> _eventi = new List<Evento>
         {
 
