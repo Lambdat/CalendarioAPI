@@ -21,7 +21,7 @@ namespace CalendarioAPI.Services
 
         public void Aggiungi(Evento t)
         {
-            throw new NotImplementedException();
+            _dati.Elenco().Add(t);
         }
 
         public Evento Cerca(string titolo)

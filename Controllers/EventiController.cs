@@ -31,7 +31,15 @@ namespace CalendarioAPI.Controllers
             return _iCalendarioService.Cerca(titolo);
         }
 
+        //Metodi POST del protocollo HTTP
 
+        [HttpPost]
+        public IActionResult Aggiungi([FromBody] Evento t)
+        {
+            _iCalendarioService.Aggiungi(t);
+
+            return Ok();
+        }
 
 
 
