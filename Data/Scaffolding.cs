@@ -91,7 +91,7 @@ namespace CalendarioAPI.Data
             */
         }
 
-        public void Modifica(string titolo, Evento t)
+        public void Modifica(Evento t)
         {
             throw new NotImplementedException();
         }

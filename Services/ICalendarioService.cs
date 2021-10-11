@@ -15,7 +15,7 @@ namespace CalendarioAPI.Services
 
         public T Cerca(string titolo);
 
-        public void Modifica(string titolo, T t);
+        public void Modifica(T t);
 
         public void Elimina(string titolo);
 

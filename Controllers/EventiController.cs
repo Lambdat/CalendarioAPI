@@ -55,10 +55,12 @@ namespace CalendarioAPI.Controllers
             return Ok();
         }
         
-        [HttpPut("{titolo}")]
-        public IActionResult Modifica([FromRoute]string titolo,[FromBody] Evento t)
+        //Metodi PUT del protocollo HTTP
+
+        [HttpPut]
+        public IActionResult Modifica([FromBody] Evento t)
         {
-            _iCalendarioService.Modifica(titolo, t);
+            _iCalendarioService.Modifica(t);
 
             return Ok();
         }

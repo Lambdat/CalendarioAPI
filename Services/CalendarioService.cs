@@ -60,14 +60,15 @@ namespace CalendarioAPI.Services
              * */
         }
 
-        public void Modifica(string titolo, Evento t)
+        public void Modifica(Evento t)
         {
 
-            if (!string.IsNullOrEmpty(titolo))
+            if (!string.IsNullOrEmpty(t.Titolo))
             {
-                int indice = _dati.Elenco().FindIndex(e => e.Titolo.ToLower().Contains(titolo.ToLower()));
+                int indice = _dati.Elenco().FindIndex(evento => evento.Titolo.ToLower().Contains(t.Titolo.ToLower()));
                 Console.WriteLine("Indice da Modificare= " + indice);
-                _dati.Elenco()[indice] = t;
+                if(indice>=0)
+                    _dati.Elenco()[indice] = t;
             }
                 
         }
