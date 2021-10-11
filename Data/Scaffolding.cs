@@ -48,7 +48,7 @@ namespace CalendarioAPI.Data
                 Inizio= new DateTime(2021,10,10,18,30,00),
                 Fine= new DateTime(2021,10,10,19,30,00),
                 Titolo="Finire la Classe del Beone su Elysium",
-                Descrizione="Arrivare a completare fino al livello 10 \n" +
+                Descrizione="Arrivare a completare fino al livello 10 " +
                 "la classe del Beone"
             }
 

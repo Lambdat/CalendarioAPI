@@ -47,13 +47,22 @@ namespace CalendarioAPI.Controllers
 
         //Metodi DELETE del protocollo HTTP
 
-        [HttpDelete]  
-        public IActionResult Elimina([FromQuery]string titolo) //fromquery => .../eventi?titolo=natale
+        [HttpDelete("{titolo}")]  
+        public IActionResult Elimina([FromRoute]string titolo) //fromquery => .../eventi?titolo=natale
         {
             _iCalendarioService.Elimina(titolo.ToLower());
 
             return Ok();
         }
         
+        [HttpPut("{titolo}")]
+        public IActionResult Modifica([FromRoute]string titolo,[FromBody] Evento t)
+        {
+            _iCalendarioService.Modifica(titolo, t);
+
+            return Ok();
+        }
+
+
     }
 }

@@ -25,11 +25,14 @@ namespace CalendarioAPI.Services
 
         public Evento Cerca(string titolo)
         {
-            Evento ris = new Evento();
 
-            ris = _dati.Elenco().Where(e => e.Titolo.ToLower().Contains(titolo.ToLower())).FirstOrDefault();
+             return _dati.Elenco().Where(evento => evento.Titolo.ToLower().Contains(titolo.ToLower())).FirstOrDefault();
+            //Metodo Alternativo
 
-            return ris;
+            //int indice = _dati.Elenco().FindIndex(evento => evento.Titolo.ToLower().Contains(titolo.ToLower()));
+
+                //return _dati.Elenco()[indice];
+        
         }
 
         public List<Evento> Elenco()
@@ -49,11 +52,24 @@ namespace CalendarioAPI.Services
 
             if(indice>=0)
                 _dati.Elenco().RemoveAt(indice);
+
+            /*
+             * if(!string)
+             * 
+             * 
+             * */
         }
 
         public void Modifica(string titolo, Evento t)
         {
-            throw new NotImplementedException();
+
+            if (!string.IsNullOrEmpty(titolo))
+            {
+                int indice = _dati.Elenco().FindIndex(e => e.Titolo.ToLower().Contains(titolo.ToLower()));
+                Console.WriteLine("Indice da Modificare= " + indice);
+                _dati.Elenco()[indice] = t;
+            }
+                
         }
     }
 }
